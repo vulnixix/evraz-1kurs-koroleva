@@ -12,6 +12,9 @@
         let body = document.getElementById("sdf");
         body.style.backgroundColor = "green";
     }
-
+    function makePink() {
+        let body = document.getElementById("sdf");
+        body.style.backgroundColor = "pink";
+    }
 
 
