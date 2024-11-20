@@ -1,3 +1,10 @@
-    let ttDOM = document.getElementById('tt');
-    let tt = prompt("изменить текст")
-    ttDOM.innerText = tt;
+
+
+    let sDOM = document.getElementById('s');
+    let s = prompt("изменить текст")
+    sDOM.innerText = s ;
+
+    let res = document.getElementById('res');
+    res.innerText = s ;
+
+
