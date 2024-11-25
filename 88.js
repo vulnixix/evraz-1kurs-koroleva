@@ -1,10 +1,8 @@
+function makeAlert() {
 
-
-    let sDOM = document.getElementById('s');
-    let s = prompt("изменить текст")
-    sDOM.innerText = s ;
-
-    let res = document.getElementById('res');
-    res.innerText = s ;
-
+    let AlertText = prompt('window')
+    console.log(AlertText)
+    let div = document.getElementById('div')
+    div.innerText = AlertText
+}
 
