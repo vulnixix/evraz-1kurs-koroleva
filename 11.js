@@ -42,7 +42,7 @@ function checkNumber() {
         divinput2.classList.add('higher'); // это для второго блока
     }
     else {
-        answer = 'Числа равны друг другу ^_^'
+        answer = 'Числа равны друг другу'
     }
 
     result.innerText = answer;
