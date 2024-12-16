@@ -68,15 +68,15 @@ function ttt() {
 }
 
 function xxx() {
-    if (div2.innerText == 0) {
+    if (div2.innerText === 0) {
         w1()
-    } else if (div2.innerText == 1) {
+    } else if (div2.innerText === 1) {
         w2()
-    } else if (div2.innerText == 2) {
+    } else if (div2.innerText === 2) {
         w3()
-    } else if (div2.innerText == 5) {
+    } else if (div2.innerText === 5) {
         w4()
-    } else if (div2.innerText % 2 == 0) {
+    } else if (div2.innerText % 2 === 0) {
         w5()
     } else {
         w6()
