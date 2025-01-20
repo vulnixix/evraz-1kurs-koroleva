@@ -6,23 +6,29 @@
 </head>
 <body id="body">
 <div style="margin-bottom: 10px; line-height: 2rem;">
-    <span id = "w1" style="padding: 5px; background-color: black; color: white;">0 - фон черный, цвет текста белый></span>
-    <span id = "w2" style="padding: 5px; background-color: white; color: black;">1 - фон белый, цвет текста черный> </span>
-    <span id = "w3" style="padding: 5px; background-color: blue; color: white;">2 - фон синий, цвет текста белый> </span>
-    <span id = "w4" style="padding: 5px; background-color: green; color: white;">5 - фон зеленый, цвет текста белый></span>
-    <span id = "w5" style="padding: 5px; background-color: red; color: black;">четное - фон красный, цвет текста черный></span>
-    <span id = "w6" style="padding: 5px; background-color: goldenrod; color: black;">нечетное - фон золотой, цвет текста черный> </span>
+
+
+   <button onclick="w1" style="padding: 5px; background-color: white; color: black;"> фон белый, тект черный </button>
+
+   <button onclick="w2" style="padding: 5px; background-color: black; color: white"> фон черный, тект белый </button>
+
+    <button onclick="w3" style="padding: 5px; background-color: gray; "> фон серый, тект черный</button>
+
+    <button onclick="w4" style="padding: 5px; background-color: yellow; color: black"> фон желтый, тект белый</button>
+
+    <button onclick="w5" style="padding: 5px; background-color: blue; color: white;"> фон синий, тект белый</button>
+
+
 </div>
 
 <div>
-    <button onclick="www()">Сделать значение равным 0</button>
-    <button onclick="sss()">Сделать значение равным 1</button>
-    <button onclick="ooo()">Сделать значение равным 2</button>
-    <button onclick="kkk()">Сделать значение равным 5</button>
-    <button onclick="lll()">Увеличить на 1</button>
-    <button onclick="ttt()">Уменьшить на 1</button>
+    <button onclick="www()">уменьшить на 10</button>
+    <button onclick="sss()">уменьшить на 1</button>
+    <button onclick="ooo()">увеличить на 1</button>
+    <button onclick="kkk()"> увеличить на 10</button>
+
 </div>
-<div>Текущее значение - <span id="total"></span></div>
+<div>Текущее число:  <span id="total"></span></div>
 <div style="float: left"  id = "div2" > </div>
 <script src="9%20занятие.js"></script>
 </body>
