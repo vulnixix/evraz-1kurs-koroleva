@@ -1,23 +1,53 @@
 function fivenul() {
-    document.getElementById('output_nul').innerText = '0 1 2 3 4'
+    let output_nul = document.getElementById('output_nul');
+    for (let q = 0; q < 5; q++){
+        output_nul.innerText = output_nul.innerText + ' ' + q;
+    }
 }
-
 function fiveone() {
-    document.getElementById('output_one').innerText = '1 2 3 4 5'
+    let output_one = document.getElementById('output_one');
+    for (let w = 1; w < 6; w++){
+        output_one.innerText = output_one.innerText + ' ' + w;
+    }
 }
-
 function tennul() {
-    document.getElementById('output_ten_nul').innerText = '0 1 2 3 4 5 6 7 8 9'
+    let output_ten_nul = document.getElementById('output_ten_nul');
+    for (let e = 0; e < 10; e++){
+        output_ten_nul.innerText = output_ten_nul.innerText + ' '+ e;
+    }
 }
 function tenone() {
-    document.getElementById('output_ten_one').innerText = '1 2 3 4 5 6 7 8 9 10'
+    let output_ten_one = document.getElementById('output_ten_one');
+    for (let r = 1; r < 11; r++){
+        output_ten_one.innerText = output_ten_one.innerText+ ' ' + r;
+    }
 }
 function tennultwo() {
-    document.getElementById('output_ten_nul_two').innerText = '0 2 4 6 8 10 12 14 16 18'
+    let output_ten_nul_two = document.getElementById('output_ten_nul_two');
+    for (let t = 0; t < 19; t+=2  ){
+        output_ten_nul_two.innerText = output_ten_nul_two.innerText+ ' ' + t;
+    }
 }
 function tenonetwo() {
-    document.getElementById('output_ten_one_two').innerText = '1 3 5 7 9 11 13 15 17 19'
+    let output_ten_one_two = document.getElementById('output_ten_one_two');
+    for (let y = 1; y < 21; y+=2 ){
+        output_ten_one_two.innerText = output_ten_one_two.innerText+ ' ' + y;
+    }
 }
+
 function twentyred() {
-    document.getElementById('output_twenty_red').innerText ='1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20'
+    let output_twenty_red = document.getElementById('output_twenty_red');
+    for (let u = 1; u < 21; u++ ){
+        let span = document.createElement('span');
+        span.innerText = ' '+u;
+        if (u % 2 ===0){
+            span.style.color = 'red';
+        }
+        output_twenty_red.append(span)
+        // текст
+        // стиль если надо
+        // добавить спан в общий спан через append
+
+    }
 }
+
