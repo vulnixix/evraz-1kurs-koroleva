@@ -1,0 +1,17 @@
+.light_red {
+    width: 1000%;
+    height: 320px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.block {
+    width: 100%;
+    height: 100%;
+}
+
+.r {
+    background-color: #df9baa;
+    padding: 30px;
+}
