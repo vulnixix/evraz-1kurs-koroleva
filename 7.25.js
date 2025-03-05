@@ -16,3 +16,20 @@ function bee() {
         gh.append(liElement);
     }
 }
+
+function np() {
+    let index = document.getElementById('j');
+    let bv = document.getElementById('bn');
+    let h = document.createElement('li');
+    if (index.value === '') {
+        alert('укажите индекс элемета')
+    }
+    let i = index.value-1
+    console.log('индекс',i, 'элемент массива', list[i]);
+    h.innerText = list[i];
+    bv.append(h)
+    if (i === -1) {
+        h.innerText = list[0];
+        bv.append(h)
+    }
+}
