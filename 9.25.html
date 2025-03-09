@@ -29,7 +29,6 @@
             display: none !important;
         }
 
-
         .tovar {
             background-color: #f0f0f0;
             width: 500px;
@@ -46,12 +45,23 @@
             font-weight: bold;
         }
 
+        .tovar-color,
         .tovar-category,
         .tovar-specials {
             font-style: italic;
         }
 
         .tovar-description {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tovar-pick-up-point {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tovar-payment {
             margin-top: 10px;
             margin-bottom: 20px;
         }
@@ -64,6 +74,7 @@
             margin-right: 40px;
             display: flex;
         }
+
 
         .tovar-price-old {
             text-decoration: line-through;
@@ -101,6 +112,19 @@
             <option value="clothes">Одежда</option>
             <option value="shoes">Обувь</option>
             <option value="tools">Инструменты</option>
+        </select>
+    </div>
+
+    <div class="item" >
+        <div>Цвет</div>
+        <select id ="color" >
+            <option selected disabled >Не выбрано</option>
+            <option value="white" >Белый</option>
+            <option value="black" >Черный</option>
+            <option value="red" >Красный</option>
+            <option value="blue" >Синий</option>
+            <option value="purple" >Фиолетовый</option>
+            <option value="brown" >Коричневый</option>
         </select>
     </div>
 
@@ -153,14 +177,28 @@
                 rows="5"
         ></textarea>
     </div>
-    <div class="item" >
-        <div>Способ оплаты</div>
-    </div>
-            <input type="radio" id="karta" name="t" value="true" onclick="j(true)">
-             <label for="karta">карта</label>
 
-            <input type="radio" id="nalich" name="t" value="false" checked onclick="j(false)">
-            <label for="nalich">наличные</label>
+    <div class="item">
+        <div>Пункт выдачи</div>
+        <textarea
+                name=""
+                id="pick-up-point"
+                cols="10"
+                rows="5"
+        ></textarea>
+    </div>
+
+    <div class="item">
+        <div>Оплата</div>
+
+        <div>
+            <input type="radio" id="card" name="payment" value="card" >
+            <label for="card">Карта</label>
+
+            <input type="radio" id="cash" name="payment" value="cash">
+            <label for="cash">Наличные</label>
+        </div>
+    </div>
 
     <div class="item">
         <button onclick="addTovar()">Добавить товар</button>
@@ -173,8 +211,11 @@
         <div class="tovar">
             <div class="tovar-name">Название</div>
             <div class="tovar-category">Категории</div>
+            <div class="tovar-color">Цвет</div>
             <div class="tovar-specials">Особенности: </div>
             <div class="tovar-description">Описание</div>
+            <div class="tovar-pick-up-point">Пункт выдачи</div>
+            <div class="tovar-payment">Оплата</div>
             <div class="tovar-price-count">
                 <!--<div class="tovar-price">Цена: 1000 руб.</div>-->
                 <div class="tovar-price">
@@ -190,6 +231,6 @@
         </div>
     </div>
 </div>
-<script src="9.25.js"></script>
+<script src="kartochka.js"></script>
 </body>
 </html>
