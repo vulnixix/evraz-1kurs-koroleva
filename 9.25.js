@@ -1,11 +1,21 @@
 let listDOM = document.getElementById('list');
 let inputName = document.getElementById('name');
 let selectCategory = document.getElementById('category');
+let selectColor = document.getElementById('color');
 let inputPrice = document.getElementById('price');
 let inputCount = document.getElementById('count');
 let inputDiscount = document.getElementById('discount');
 let inputDescription = document.getElementById('description');
-let inputOplata = document.getElementById('j');
+let inputPickUpPoint = document.getElementById('pick-up-point');
+
+let colors = {
+    'white' : 'Белый',
+    'black' : 'Черный',
+    'red' : 'Красный',
+    'blue' : 'Синий',
+    'purple' : 'Фиолетовый',
+    'brown' : 'Коричневый',
+}
 
 let categories = {
     'clothes': 'Одежда',
@@ -16,6 +26,11 @@ let categories = {
 let specialsObj = {
     'bu': 'Б/У',
     'fragile': 'Хрупкое',
+}
+
+let paymentObj = {
+    'card' : 'Карта',
+    'cash' : 'Наличные',
 }
 
 function discount(item) {
@@ -30,23 +45,10 @@ function discount(item) {
         field.style.setProperty('display', 'none', 'important')
     }
 }
-function j(item) {
-    let field = document.getElementById('discountFom')
-
-    if (item) {
-        // чтобы перебить ранее написанный стиль с !important
-        field.style.setProperty('display', 'flex', 'important')
-    }
-    else {
-        // чтобы перебить ранее написанный стиль с !important
-        field.style.setProperty('display', 'none', 'important')
-    }
-}
 
 function addTovar() {
     // находим активный радио-инпут, который выбран
     let discountChoose = document.querySelector('input[name=discount]:checked');
-    let oplatak = document.querySelector('input[name=discount]:checked')
 
     // создаем контейнер для товара
     let cardTovar = document.createElement('div');
@@ -72,8 +74,6 @@ function addTovar() {
         price = `<div class="tovar-price">Цена: ${ inputPrice.value } руб.</div>`;
     }
 
-
-
     // достаем все чекбоксы особенностей и генерируем текст
     let specialsText = '';
     let specials = document.querySelectorAll('input[name=specials]:checked');
@@ -83,11 +83,23 @@ function addTovar() {
         specialsText += ' ' + specialsObj[specials[i].value];
     }
 
+    let paymentText = '';
+    let payment = document.querySelectorAll('input[name=payment]:checked');
+
+    for (let i = 0; i < payment.length; i++) {
+        // console.log(specials[i].value, specialsObj[specials[i].value]);
+        paymentText += ' ' + paymentObj[payment[i].value];
+    }
+
+
+
     let card = `<div class="tovar-name">${ inputName.value }</div>
             <div class="tovar-category">${ categories[selectCategory.value] }</div>
+            <div class="tovar-color">${colors[selectColor.value]}</div>
             <div class="tovar-specials">Особенности: ${ specialsText }</div>
             <div class="tovar-description">${ inputDescription.value }</div>
-            <div class="tovar-price-count">
+            <div class="tovar-pick-up-point">${ inputPickUpPoint.value }</div>
+            <div class="tovar-payment">${ paymentText }</div>
                 ${ price }
                 <div class="count">Количество: ${ inputCount.value } шт.</div>
             </div>
