@@ -92,15 +92,15 @@ function addTovar() {
     }
 
 
-
     let card = `<div class="tovar-name">${ inputName.value }</div>
             <div class="tovar-category">${ categories[selectCategory.value] }</div>
             <div class="tovar-color">${colors[selectColor.value]}</div>
             <div class="tovar-specials">Особенности: ${ specialsText }</div>
-            <div class="tovar-description">${ inputDescription.value }</div>
-            <div class="tovar-pick-up-point">${ inputPickUpPoint.value }</div>
-            <div class="tovar-payment">${ paymentText }</div>
-                ${ price }
+            <div class="tovar-description">Описание: ${ inputDescription.value }</div>
+            <div class="tovar-pick-up-point">Пункт выдачи: ${ inputPickUpPoint.value }</div>
+            <div class="tovar-payment">Оплата: ${ paymentText }</div>
+            <div class="tovar-price-count">
+                ${ price } 
                 <div class="count">Количество: ${ inputCount.value } шт.</div>
             </div>
             <div class="tovar-close">X</div>`
