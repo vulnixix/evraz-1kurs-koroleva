@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+}
+
+.glav {
+    margin-top: 20px;
+}
+
+.video {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.text {
+    order: 1;
+}
+
+.videoo {
+    order: 2;
+}
+
+.videoo video {
+    border-radius: 4px;
+    width: 400px;
+}
+
+@media (max-width: 800px) {
+    .video {
+        flex-direction: column;
+    }
+    .text {
+        order: 2;
+    }
+    
+    .videoo {
+        order: 1;
+    }
+}
+
+@media (max-width : 400px) {
+    .videoo video {
+        width: 300px;
+    }
+}

@@ -1,0 +1,25 @@
+.body {
+    font-family: "Open Sans", sans-serif; /* Изменение шрифта на сайте */
+    color: white; /* Цвет текста */
+    background-color: black; /* Задний фон */
+    margin: 0; /* Внешние отступы */
+}
+
+a {
+    text-decoration: none; /* Убрать подчеркивание */
+}
+
+a:visited {
+    color: white; /* Цвет текста */
+}
+
+.container {
+    max-width: 1200px; /* Максимальнач ширина блока */
+    margin: 0 auto; /* Выравнивание по центру */
+}
+.header {
+    display: flex; /* Выравнивание элементов в строку */
+    justify-content: space-between; /* Растягивание элементов по краям */
+    align-items: center; /* Выравнивание элементов по вертикали по центру */
+    padding: 20px 0; /* Внутренние отступы для содержимого */
+}

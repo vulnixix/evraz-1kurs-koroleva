@@ -1,0 +1,40 @@
+@import url('base.css'); /* Копирование стилей из другого файла */
+
+.main {
+    padding: 20px 0 20px 0; /* Внутренние отступы: сверху, справа, снизу, слева */
+}
+
+.title {
+    margin: 0 0 40px 0; /* Внешние отступы: сверху, справа, снизу, слева */
+}
+
+.films {
+    display: flex;
+    flex-wrap: wrap; /* Перенос элементов, которые не влазят */
+    gap: 40px; /* Отступы между элементами */
+}
+
+.film {
+    position: relative /* Относительное позиционирование */;
+}
+
+.film-img {
+    height: 360px;
+}
+
+.film-img > img {
+    height: 100%;
+}
+
+.rating {
+    display: flex;
+    justify-content: center; /* Выравнивание элементов по горизонтали */
+    align-items: center; /* Выравнивание элементов по вертикали */
+    position: absolute; /* Абсолютное позиционирование (относительно position: relative) */
+    top: 20px; /* Отступ сверху */
+    left: 20px; /* Отступ слева */
+    width: 30px;
+    height: 30px;
+    background-color: #1a191f;
+    border-radius: 50%; /* Закругление до формы круга */
+}

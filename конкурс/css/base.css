@@ -1,0 +1,111 @@
+@import url('fonts.css');
+
+html {
+    font-size: 16px;
+}
+
+.body {
+    font-family: "Open Sans", sans-serif; /* Изменение шрифта на сайте */
+    color: white; /* Цвет текста */
+    background-color: black; /* Задний фон */
+    margin: 0; /* Внешние отступы */
+    /* animation: changeBackground infinite linear 3s; */ /* CSS-анимация: название, время выполнения, тип и задержка */
+}
+
+@keyframes changeBackground {
+    0% {
+        background-color: black;
+    }
+    25% {
+        background-color: red;
+    }
+    50% {
+        background-color: green;
+    }
+    75% {
+        background-color: blue;
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+.light {
+    background-color: white;
+    color: black;
+}
+
+.light a {
+    color: black;
+    transition: all .3s ease; /* Плавное изменение стилей элемента */
+}
+
+.light a:visited {
+    color: black;
+}
+
+.light a:hover {
+    color: red;
+}
+
+a {
+    color: white;
+    text-decoration: none; /* Убрать подчеркивание */
+}
+
+a:visited {
+    color: white; /* Цвет текста */
+}
+
+.container {
+    max-width: 1360px; /* Максимальнач ширина блока */
+    margin: 0 auto; /* Выравнивание по центру */
+}
+
+.header {
+    display: flex; /* Выравнивание элементов в строку */
+    justify-content: space-between; /* Растягивание элементов по краям */
+    align-items: center; /* Выравнивание элементов по вертикали по центру */
+    padding: 20px 0; /* Внутренние отступы для содержимого */
+}
+
+.navigation {
+    display: flex;
+    gap: 40px;
+}
+
+.footer {
+    padding: 8% 0 0 0;
+}
+
+@media (max-width: 1380px) {
+    .container {
+        padding: 0 20px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .header img {
+        margin-bottom: 10px;
+    }
+}
+
+/* CSS-стили для печати веб-страницы */
+@media print {
+	.body {
+        height: 297mm;
+		width: 210mm;
+    }
+    .header, .footer {
+        display: none; /* Скрываем элементы с экрана */
+    }
+}
+
+@page {
+	margin: 10mm 10mm 10mm 20mm; /* Задаем поля (отступы по краям) страницы */
+}

@@ -1,0 +1,40 @@
+@import url('base.css');
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+}
+
+.register-form h1 {
+    text-align: center;
+}
+
+.register-form button{
+    height: 28px;
+    width: 360px;
+    
+}
+
+.register-form input:not([type="checkbox"]) {
+    height: 28px;
+    width: 360px;
+    margin-bottom: 20px;
+}
+
+.register-form input[type="checkbox"] {
+    margin-bottom: 20px;
+}
+
+select {
+    height: 28px;
+    width: 360px;
+    margin-bottom: 20px;
+
+}
+
+.footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
