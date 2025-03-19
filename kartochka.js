@@ -17,13 +17,13 @@ let products = [];
 
 let currentEditProduct = null;
 
-let colors = {
-    'white' : 'Белый',
-    'black' : 'Черный',
-    'red' : 'Красный',
-    'blue' : 'Синий',
-    'purple' : 'Фиолетовый',
-    'brown' : 'Коричневый',
+let color = {
+    'white': 'Белый',
+    'black': 'Черный',
+    'red': 'Красный',
+    'blue': 'Синий',
+    'purple': 'Фиолетовый',
+    'brown': 'Коричневый',
 }
 
 let categories = {
@@ -38,24 +38,24 @@ let specialsObj = {
 }
 
 let paymentObj = {
-    'card' : 'Карта',
-    'cash' : 'Наличные',
+    'card': 'Карта',
+    'cash': 'Наличные',
 }
 
-function discount(item) {
+function discount2(item) {
     let field = document.getElementById('discountDom')
 
     if (item) {
         // чтобы перебить ранее написанный стиль с !important
         field.style.setProperty('display', 'flex', 'important')
-    }
-    else {
+    } else {
         // чтобы перебить ранее написанный стиль с !important
         field.style.setProperty('display', 'none', 'important')
     }
 }
 
 function addTovar() {
+    event.preventDefault();
     // находим активный радио-инпут, который выбран
     let discountChoose = document.querySelector('input[name=discount]:checked');
 
@@ -68,25 +68,20 @@ function addTovar() {
         specialsValues.push(specials[i].value);
     }
 
-    let paymentText = '';
-    let paymentValues = [];
-    let payment = document.querySelectorAll('input[name=payment]:checked');
-
-    for (let i = 0; i < payment.length; i++) {
-        paymentValues.push(payment[i].value);
-    }
-
+    let paymentChoose = document.querySelector('input[name=payment]:checked');
 
     let product = {
-        name:           inputName.value,
-        category:       selectCategory.value,
-        specials:       specialsValues,
-        payments:       paymentValues,
-        description:    inputDescription.value,
+        name: inputName.value,
+        category: selectCategory.value,
+        specials: specialsValues,
+        description: inputDescription.value,
         discountChoose: discountChoose.value,
-        discount:       inputDiscount.value,
-        price:          inputPrice.value,
-        count:          inputCount.value,
+        discount: inputDiscount.value,
+        price: inputPrice.value,
+        count: inputCount.value,
+        PickUpPoint: inputPickUpPoint.value,
+        color: selectColor.value,
+        paymentChoose: paymentChoose.value,
     };
     let productIndex = products.push(product) - 1;
 
@@ -110,13 +105,12 @@ function addTovarCard(tovar, index) {
         price = `<div class="tovar-price">
                     <div>Цена: </div>
                     <div>
-                        <div class="tovar-price-old">${ tovar.price } руб.</div>
-                        <div>${ newPrice } руб.</div>
+                        <div class="tovar-price-old">${tovar.price} руб.</div>
+                        <div>${newPrice} руб.</div>
                     </div>
                 </div>`;
-    }
-    else {
-        price = `<div class="tovar-price">Цена: ${ tovar.price } руб.</div>`;
+    } else {
+        price = `<div class="tovar-price">Цена: ${tovar.price} руб.</div>`;
     }
 
     // достаем все чекбоксы особенностей и генерируем текст
@@ -126,27 +120,26 @@ function addTovarCard(tovar, index) {
         specialsText += ' ' + specialsObj[tovar.specials[i]];
     }
 
-    // достаем все чекбоксы особенностей и генерируем текст
     let paymentText = '';
 
-    for (let i = 0; i < tovar.payments.length; i++) {
-        paymentText += ' ' + paymentObj[tovar.payments[i]];
+    for (let i = 0; i < tovar.payment; i++) {
+        paymentText += ' ' + paymentObj[tovar.payment[i]];
     }
 
-    let card = `<div class="tovar-name">${ tovar.name }</div>
-            <div class="tovar-category">${ categories[tovar.category] }</div>
-            <div class="tovar-color">${colors[selectColor.value]}</div>
-            <div class="tovar-specials">Особенности: ${ specialsText }</div>
-            <div class="tovar-description">Описание: ${ tovar.description }</div>
-            <div class="tovar-pick-up-point">Пункт выдачи: ${ inputPickUpPoint.value }</div>
-            <div class="tovar-payment">Оплата: ${ paymentText }</div>
+    let card = `<div class="tovar-name">${tovar.name}</div>
+            <div class="tovar-category">${categories[tovar.category]}</div>
+            <div class="tovar-color">${color[tovar.color]}</div>
+            <div class="tovar-specials">Особенности: ${specialsText}</div>
+            <div class="tovar-description">Описание: ${tovar.description}</div>
+            <div class="tovar-pick-up-point">Пункт выдачи: ${tovar.PickUpPoint}</div>
+            <div class="tovar-payment">Оплата: ${tovar.paymentChoose}</div>
             <div class="tovar-price-count">
-                ${ price } 
-                <div class="count">Количество: ${ tovar.count } шт.</div>
+                ${price} 
+                <div class="count">Количество: ${tovar.count} шт.</div>
             </div>
             <div class="tovar-close">X</div>
             <div class="tovar-edit">
-                <button onclick="edit(${ index })">Редактировать</button>
+                <button onclick="edit(${index})">Редактировать</button>
             </div`;
 
     cardTovar.innerHTML = card;
@@ -155,7 +148,7 @@ function addTovarCard(tovar, index) {
     form.reset();
 }
 
-function editTovar(productIndex) {
+function edit(productIndex) {
     currentEditProduct = productIndex;
 
     buttonAdd.classList.add('hide');
@@ -169,9 +162,12 @@ function editTovar(productIndex) {
     inputCount.value = product.count;
     inputDescription.value = product.description;
     selectCategory.value = product.category;
+    selectColor.value = product.color;
+    inputPickUpPoint.value = product.PickUpPoint;
+
 
     // ищем нужный инпут радио с нужным value значением, чтобы его отметить как выбранный
-    let radio = document.querySelector(`input[name=discount][value=${ product.discountChoose }]`);
+    let radio = document.querySelector(`input[name=discount][value=${product.discountChoose}]`);
     if (radio) {
         radio.checked = true;
     }
@@ -179,15 +175,33 @@ function editTovar(productIndex) {
     for (let i = 0; i < product.specials.length; i++) {
         // ищем нужный инпут чекбокс с нужным value значением, чтобы его отметить как выбранный
         let specialValue = product.specials[i];
-        let checkbox = document.querySelector(`input[name=specials][value=${ specialValue }]`);
+        let checkbox = document.querySelector(`input[name=specials][value=${specialValue}]`);
         if (checkbox) {
             checkbox.checked = true;
         }
     }
+
+    // ищем нужный инпут радио с нужным value значением, чтобы его отметить как выбранный
+    let radioPaymet = document.querySelector(`input[name=payment][value=${product.paymentChoose}]`);
+    if (radioPaymet) {
+        radioPaymet.checked = true;
+    }
+
+    for (let i = 0; i < product.payment; i++) {
+        // ищем нужный инпут чекбокс с нужным value значением, чтобы его отметить как выбранный
+        let paymentValue = product.specials[i];
+        let notcheckbox = document.querySelector(`input[name=payment][value=${paymentValue}]`);
+        if (notcheckbox) {
+            notcheckbox.checked = true;
+        }
+    }
 }
+
 
 // обновление товара в массиве товаров после его редактирования
 function editTovar() {
+
+    event.preventDefault();
 
     buttonAdd.classList.remove('hide');
     buttonEdit.classList.add('hide');
@@ -199,6 +213,16 @@ function editTovar() {
 
     // находим активный радио-инпут, который выбран
     let discountChoose = document.querySelector('input[name=discount]:checked');
+
+    let paymentChoose = document.querySelector('input[name=payment]:checked')
+
+    // достаем все чекбоксы особенностей и генерируем текст
+    let paymentValue = [];
+    let payment = document.querySelectorAll('input[name=payment]:checked');
+
+    for (let i = 0; i < payment; i++) {
+        paymentValue.push(payment[i].value);
+    }
 
     // достаем все чекбоксы особенностей и генерируем текст
     let specialsValues = [];
@@ -216,8 +240,11 @@ function editTovar() {
     product.discount = inputDiscount.value;
     product.price = inputPrice.value;
     product.count = inputCount.value;
+    product.color = selectColor.value;
+    product.paymentChoose = paymentChoose.value;
+    product.PickUpPoint = inputPickUpPoint.value;
 
-    event.preventDefault();
+
     form.reset();
 
     buildAgain();

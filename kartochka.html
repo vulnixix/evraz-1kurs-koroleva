@@ -13,6 +13,10 @@
             width: 50%;
         }
 
+        body > div {
+            width: 50%;
+        }
+
         .forma, .tovary {
             display: flex;
             flex-direction: column;
@@ -109,8 +113,6 @@
 </head>
 <body>
 <div class="forma">
-    <h3>Форма добавления товара</h3>
-
     <form action="" id="form">
         <h3 id="title-add">Форма добавления товара</h3>
         <h3 id="title-edit" class="hide">Форма редактирования товара</h3>
@@ -157,10 +159,10 @@
             <div>Есть скидка?</div>
 
             <div>
-                <input type="radio" id="yes" name="discount" value="true" onclick="discount(true)">
+                <input type="radio" id="yes" name="discount" value="true" onclick="discount2(true)">
                 <label for="yes">Да</label>
 
-                <input type="radio" id="no" name="discount" value="false" checked onclick="discount(false)">
+                <input type="radio" id="no" name="discount" value="false" checked onclick="discount2(false)">
                 <label for="no">Нет</label>
             </div>
         </div>
@@ -202,24 +204,23 @@
                     rows="5"
             ></textarea>
         </div>
-
         <div class="item">
             <div>Оплата</div>
 
             <div>
-                <input type="radio" id="card" name="payment" value="card">
+                <input type="radio" id="card" name="payment" value="Карта" >
                 <label for="card">Карта</label>
 
-                <input type="radio" id="cash" name="payment" value="cash">
+                <input type="radio" id="cash" name="payment" value="Наличные" checked >
                 <label for="cash">Наличные</label>
             </div>
         </div>
+    </form>
 
         <div class="item">
             <button id="button-add" onclick="addTovar()">Добавить товар</button>
             <button id="button-edit" class="hide" onclick="editTovar()">Редактировать товар</button>
         </div>
-    </form>
 </div>
 
 <div class="tovary">
