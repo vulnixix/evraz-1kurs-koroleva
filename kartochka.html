@@ -208,49 +208,51 @@
             <div>Оплата</div>
 
             <div>
-                <input type="radio" id="card" name="payment" value="Карта" >
+                <input type="radio" id="card" name="payment" value="Карта">
                 <label for="card">Карта</label>
 
-                <input type="radio" id="cash" name="payment" value="Наличные" checked >
+                <input type="radio" id="cash" name="payment" value="Наличные" checked>
                 <label for="cash">Наличные</label>
             </div>
         </div>
     </form>
 
-        <div class="item">
-            <button id="button-add" onclick="addTovar()">Добавить товар</button>
-            <button id="button-edit" class="hide" onclick="editTovar()">Редактировать товар</button>
-        </div>
+    <div class="item">
+        <button id="button-add" onclick="addTovar()">Добавить товар</button>
+        <button id="button-edit" class="hide" onclick="editTovar()">Редактировать товар</button>
+    </div>
 </div>
 
 <div class="tovary">
     <h3>Товары</h3>
 
     <div id="list">
-        <div class="tovar">
-            <div class="tovar-name">Название</div>
-            <div class="tovar-category">Категории</div>
-            <div class="tovar-color">Цвет</div>
-            <div class="tovar-specials">Особенности:</div>
-            <div class="tovar-description">Описание</div>
-            <div class="tovar-pick-up-point">Пункт выдачи</div>
-            <div class="tovar-payment">Оплата</div>
-            <div class="tovar-price-count">
-                <!--<div class="tovar-price">Цена: 1000 руб.</div>-->
-                <div class="tovar-price">
-                    <div>Цена:</div>
-                    <div>
-                        <div class="tovar-price-old">1000 руб.</div>
-                        <div>1000 руб.</div>
-                    </div>
-                </div>
-                <div class="count">Количество: 1000 шт.</div>
-            </div>
-            <div class="tovar-close">X</div>
-            <div class="tovar-edit">
-                <button onclick="editTovar()">Редактировать</button>
-            </div>
-        </div>
+        <!--        <div class="tovar">-->
+        <!--            <div class="tovar-name">Название</div>-->
+        <!--            <div class="tovar-category">Категории</div>-->
+        <!--            <div class="tovar-color">Цвет</div>-->
+        <!--            <div class="tovar-specials">Особенности:</div>-->
+        <!--            <div class="tovar-description">Описание</div>-->
+        <!--            <div class="tovar-pick-up-point">Пункт выдачи</div>-->
+        <!--            <div class="tovar-payment">Оплата</div>-->
+        <!--            <div class="tovar-price-count">-->
+        <!--                &lt;!&ndash;<div class="tovar-price">Цена: 1000 руб.</div>&ndash;&gt;-->
+        <!--                <div class="tovar-price">-->
+        <!--                    <div>Цена:</div>-->
+        <!--                    <div>-->
+        <!--                        <div class="tovar-price-old">1000 руб.</div>-->
+        <!--                        <div>1000 руб.</div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="count">Количество: 1000 шт.</div>-->
+        <!--            </div>-->
+        <!--            <div class="tovar-close">-->
+        <!--                <button>X</button>-->
+        <!--            </div>-->
+        <!--            <div class="tovar-edit">-->
+        <!--                <button onclick="editTovar()">Редактировать</button>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
 </div>
 <script src="kartochka.js"></script>
