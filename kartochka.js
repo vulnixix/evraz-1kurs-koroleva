@@ -10,15 +10,12 @@ let inputPickUpPoint = document.getElementById('pick-up-point');
 let form = document.getElementById('form');
 let buttonAdd = document.getElementById('button-add');
 let buttonEdit = document.getElementById('button-edit');
-let buttonClose = document.getElementById('button-close');
 let titleAdd = document.getElementById('title-add')
 let titleEdit = document.getElementById('title-edit')
 
 let products = [];
 
 let currentEditProduct = null;
-
-let currentCloseProduct = null;
 
 let color = {
     'white': 'Белый',
@@ -89,10 +86,11 @@ function addTovar() {
     let productIndex = products.push(product) - 1;
 
     addTovarCard(product, productIndex)
+
+    localStorage.setItem('object', JSON.stringify(products));
 }
 
 function addTovarCard(tovar, index) {
-    event.preventDefault();
     // создаем контейнер для товара
     let cardTovar = document.createElement('div');
     cardTovar.classList.add('tovar');
@@ -165,6 +163,7 @@ function edit(productIndex) {
     inputName.value = product.name;
     inputPrice.value = product.price;
     inputCount.value = product.count;
+    inputDiscount.value = product.discount
     inputDescription.value = product.description;
     selectCategory.value = product.category;
     selectColor.value = product.color;
@@ -252,6 +251,8 @@ function editTovar() {
 
     form.reset();
 
+    localStorage.setItem('object', JSON.stringify(products));
+
     buildAgain();
 }
 
@@ -266,11 +267,17 @@ function buildAgain() {
 }
 
 function closeEl(productIndex){
-    console.log('close productIndex', productIndex)
+    //console.log('close productIndex', productIndex)
     // currentCloseProduct = productIndex;
     // event.preventDefault()
 
     products.splice(productIndex, 1)
 
+    localStorage.setItem('object', JSON.stringify(products));
+
     buildAgain();
+
 }
+
+products = JSON.parse(localStorage.getItem('object'));
+buildAgain();
